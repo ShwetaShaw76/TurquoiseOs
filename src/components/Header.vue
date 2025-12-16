@@ -1,10 +1,10 @@
 <script setup>
-    import { ref } from 'vue';
+    import { computed, ref } from 'vue';
     let now=new Date();
     const hrs=ref(now.getHours());
     const mins=ref(now.getMinutes());
     const time = computed(() => {
-    const h = hrs.value
+    const h = String(hrs.value).padStart(2,'0')
     const m = String(mins.value).padStart(2, '0')
     return `${h}:${m}`
 })
@@ -23,7 +23,7 @@
         color:white;
        display:flex;
        align-items:center;
-       padding:0px 10px;
+       padding:0px 15px;
     }
 
 </style>
