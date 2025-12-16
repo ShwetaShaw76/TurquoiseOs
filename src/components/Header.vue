@@ -3,16 +3,27 @@
     let now=new Date();
     const hrs=ref(now.getHours());
     const mins=ref(now.getMinutes());
-    const time = ref("hrs:mins")
+    const time = computed(() => {
+    const h = hrs.value
+    const m = String(mins.value).padStart(2, '0')
+    return `${h}:${m}`
+})
 </script>
 
 <template>
     <header>
-        <p>time</p>
+        <p>{{ time }}</p>
     </header>
 </template>
 
 <style scoped>
-
+    header{
+        height:5vh;
+        background-color:black;
+        color:white;
+       display:flex;
+       align-items:center;
+       padding:0px 10px;
+    }
 
 </style>

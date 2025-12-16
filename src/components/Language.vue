@@ -13,7 +13,7 @@
     .background{
         display:flex;
         background-color: rgba(142, 142, 236, 0.9);
-        height: 100vh;
+        height:95vh;
         justify-content: center;
         align-items: center;
         aspect-ratio:9/16;
