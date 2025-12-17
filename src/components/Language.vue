@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <header><Header></Header></header>
+    
     <div class="background">
-
+        <header><Header></Header></header>
     </div>
 </template>
 
@@ -13,9 +13,7 @@
     .background{
         display:flex;
         background-color: rgba(142, 142, 236, 0.9);
-        height:95vh;
-        justify-content: center;
-        align-items: center;
+        height:100vh;
         aspect-ratio:9/16;
         color:white;
         text-align:center;
