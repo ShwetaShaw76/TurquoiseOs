@@ -17,5 +17,5 @@ topPanel.use(router)
 
 // app.mount('#app')
 // screen.mount('#app')
-langSelc.mount("#app")
-// topPanel.mount('#app')
+// langSelc.mount("#app")
+topPanel.mount('#app')

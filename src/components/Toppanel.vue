@@ -1,4 +1,5 @@
 <script setup>
+    import Header from './Header.vue';
     import { computed, ref, onMounted, onUnmounted} from 'vue';
     
     const hrs=ref(0);
@@ -39,6 +40,7 @@
 
 <template>
     <div class="topPanel">
+        
     <div class="topapps">
         <div class="dt">{{ time }} {{ date }}</div>
         <div class="sett"></div>
@@ -49,6 +51,32 @@
 
 <style scoped>
     .topPanel{
-        background:linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.7))
+        background:url("/assets/forest_background.jpg");
+        background-size:cover;
+        background-color:rgba(0,0,0,0.3);
+        height:100vh;
+        aspect-ratio:9/16;
+        color:white;
+        text-align:center;
+        z-index:-1;
     }
+    .topPanel::before{
+        content:"";
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:rgba(255,255,255,0.1);
+        backdrop-filter:blur(2px);
+    }
+    .topapps{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:10px;
+        backdrop-filter:blur(3px);
+        height:10vh;
+    }
+    
 </style>

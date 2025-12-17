@@ -35,11 +35,11 @@
 
             updateBattery();
 
-            battery.addEventListener('levelchange', updateBattery());
+            battery.addEventListener('levelchange', updateBattery);
         });
     }
     updateTime();
-    timer = setInterval(updateTime,1000);
+    timer = setInterval(updateTime,60000);
 });
 
 onUnmounted(()=>{
