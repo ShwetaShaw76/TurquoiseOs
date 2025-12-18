@@ -38,6 +38,7 @@
 </script>
 
 <template>
+
     <div class="topPanel">
         
     <div class="topapps">
@@ -69,15 +70,35 @@ volume_up
     </div>
     </div>
     <div class="apps">
-        <div class="app" ></div>
-        <div class="app" ></div>
-        <div class="app" ></div>
-        <div class="app" ></div>
-        <div class="app" ></div>
-        <div class="app" ></div>
-        <div class="app" ></div>
-        <div class="app" ></div>
-        <div class="app" ></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+arrow_upward_alt
+</span><span class="material-symbols-outlined icons">
+arrow_downward_alt
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+notifications
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+flashlight_off
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+location_on
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+flight
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+mobile_rotate
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+do_not_disturb_off
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+wifi_tethering
+</span></div>
+        <div class="app" ><span class="material-symbols-outlined icons">
+energy_program_saving
+</span></div>
     </div>
     </div>
 </template>
@@ -239,5 +260,8 @@ volume_up
         width: 90px;
         border-radius: 50%;
         border: 0.0002px solid grey;
+    }
+    .icons{
+        font-size: 2rem;
     }
 </style>
