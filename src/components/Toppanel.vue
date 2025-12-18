@@ -8,6 +8,12 @@
 
     let timer;
 
+    const active = ref(false);
+
+    const changeColor = () => {
+        active.value = !active.value;
+    };
+
     const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
     const updateTime=()=>{
@@ -70,12 +76,12 @@ volume_up
     </div>
     </div>
     <div class="apps">
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active}" @click="changeColor"><span class="material-symbols-outlined icons">
 arrow_upward_alt
 </span><span class="material-symbols-outlined icons">
 arrow_downward_alt
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app"><span class="material-symbols-outlined icons">
 notifications
 </span></div>
         <div class="app" ><span class="material-symbols-outlined icons">
@@ -123,7 +129,7 @@ energy_program_saving
         height:100%;
         background-color:rgba(255,255,255,0.1);
         
-        z-index:1;
+        z-index:-1;
     }
     #settingIcon{
         font-size:2rem;
@@ -263,5 +269,12 @@ energy_program_saving
     }
     .icons{
         font-size: 2rem;
+    }
+    .app:hover{
+        cursor: pointer;
+        background-color: rgba(0,0,0,0.6);
+    }
+    .app.active{
+        background-color: cyan;
     }
 </style>
