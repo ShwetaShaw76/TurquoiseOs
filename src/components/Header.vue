@@ -10,7 +10,7 @@
         let now=new Date();
         hrs.value=now.getHours();
         mins.value=now.getMinutes();
-        time();
+        
     }
 
     const time = computed(() => {
@@ -63,7 +63,7 @@ onUnmounted(()=>{
 <style scoped>
     header{
         height:5vh;
-        background-color:rgba(0,0,0,0.8);
+        background-color:rgba(0,0,0,0.5);
         color:white;
        display:flex;
        align-items:center;
