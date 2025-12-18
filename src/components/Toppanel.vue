@@ -8,10 +8,10 @@
 
     let timer;
 
-    const active = ref(false);
+    const active = ref(Array(11).fill(false));
 
-    const changeColor = () => {
-        active.value = !active.value;
+    const changeColor = (index) => {
+        active.value[index] = !active.value[index];
     };
 
     const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -59,10 +59,10 @@ more_vert
     </div>
     <div class="secondHalf">
         <div class="secLeft">
-            <div class="wifi"><span class="material-symbols-outlined" id="wifiIcon">
+            <div class="wifi" :class="{active:active[9]}" @click="changeColor(9)"><span class="material-symbols-outlined" id="wifiIcon">
 wifi
 </span><p class="wifiText">WiFi</p></div>
-        <div class="bluetooth"><span class="material-symbols-outlined" id="bluetoothIcon">
+        <div class="bluetooth" :class="{active:active[10]}" @click="changeColor(10)"><span class="material-symbols-outlined" id="bluetoothIcon">
 bluetooth
 </span><p class="bluetoothText">Bluetooth</p></div>
     </div>
@@ -76,33 +76,33 @@ volume_up
     </div>
     </div>
     <div class="apps">
-        <div class="app" :class="{active}" @click="changeColor"><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[0]}" @click="changeColor(0)"><span class="material-symbols-outlined icons">
 arrow_upward_alt
 </span><span class="material-symbols-outlined icons">
 arrow_downward_alt
 </span></div>
-        <div class="app"><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[1]}" @click="changeColor(1)"><span class="material-symbols-outlined icons">
 notifications
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[2]}" @click="changeColor(2)"><span class="material-symbols-outlined icons">
 flashlight_off
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[3]}" @click="changeColor(3)"><span class="material-symbols-outlined icons">
 location_on
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[4]}" @click="changeColor(4)"><span class="material-symbols-outlined icons">
 flight
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[5]}" @click="changeColor(5)"><span class="material-symbols-outlined icons">
 mobile_rotate
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[6]}" @click="changeColor(6)"><span class="material-symbols-outlined icons">
 do_not_disturb_off
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[7]}" @click="changeColor(7)"><span class="material-symbols-outlined icons">
 wifi_tethering
 </span></div>
-        <div class="app" ><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[8]}" @click="changeColor(8)"><span class="material-symbols-outlined icons">
 energy_program_saving
 </span></div>
     </div>
@@ -134,8 +134,14 @@ energy_program_saving
     #settingIcon{
         font-size:2rem;
     }
+    #settingIcon:hover{
+        cursor: pointer;
+    }
     #optionsIcon{
         font-size:2rem;
+    }
+    #optionsIcon:hover{
+        cursor: pointer;
     }
     .topapps{
         display:flex;
@@ -178,6 +184,12 @@ energy_program_saving
     .secLeft{
         padding-left:5px;
     }
+    .wifi.active{
+    background-color: skyblue;     
+    }
+    .bluetooth.active {
+    background-color: skyblue;
+    }
     .wifi{
         display: flex;
         background-color: rgba(0,0,0,0.7);
@@ -191,6 +203,12 @@ energy_program_saving
         align-items: center;
         gap:15px;
         
+    }
+    .wifi:hover{
+        cursor: pointer;
+    }
+    .bluetooth:hover{
+        cursor: pointer;
     }
     .bluetooth{
         display: flex;
@@ -275,6 +293,6 @@ energy_program_saving
         background-color: rgba(0,0,0,0.6);
     }
     .app.active{
-        background-color: cyan;
+        background-color: skyblue;
     }
 </style>
