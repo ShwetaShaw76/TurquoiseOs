@@ -120,6 +120,9 @@
         align-items: center;
         justify-content: space-between;
     }
+    .googleBar:hover{
+        cursor:text;
+    }
     #googleLogo{
         height:40px;
         border-radius: 50%;
@@ -134,11 +137,25 @@
         color: black;
         font-size: 2rem;
         font-weight: 700;
+        padding:5px;
+    }
+    #micIcon:hover{
+        scale: 0.9;
+        cursor:pointer;
+        background-color: rgba(255,255,255,0.6);
+        border-radius: 50%;
     }
     #cmIcon{
         color: black;
         font-size: 2rem;
         font-weight: 700;
+        padding:5px;
+    }
+    #cmIcon:hover{
+        scale: 0.9;
+        cursor:pointer;
+        background-color: rgba(255,255,255,0.6);
+        border-radius: 50%;
     }
     footer{
         height: 100%;
@@ -159,5 +176,10 @@
         height: 70px;
         width: 70px;
         border-radius: 30%;
+    }
+    .icon:hover{
+        cursor:pointer;
+        scale: 0.85;
+        transition: all ease-in-out;
     }
 </style>
