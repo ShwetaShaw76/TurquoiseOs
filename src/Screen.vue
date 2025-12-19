@@ -2,7 +2,7 @@
 
 <template>
     <div class="screen">
-    <h1>Turquoise Os</h1>
+    <h1>Turquoise</h1>
     <div id="loading"><div class="circle"><div class="ciye"></div></div></div>
     </div>
 </template>
@@ -10,7 +10,7 @@
 <style scoped>
     .screen {
         display:flex;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.95);
         height: 100vh;
         justify-content: center;
         align-items: center;
