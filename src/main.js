@@ -22,6 +22,6 @@ appScreen.use(router)
 
 // screen.mount('#app')
 // langSelc.mount("#app")
-// topPanel.mount('#app')
+topPanel.mount('#app')
 // homeScreen.mount('#app')
-appScreen.mount('#app')
+// appScreen.mount('#app')

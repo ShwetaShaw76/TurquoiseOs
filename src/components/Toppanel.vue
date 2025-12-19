@@ -14,6 +14,13 @@
         active.value[index] = !active.value[index];
     };
 
+    const changeHeight = (event) => {
+    const bar = event.target;
+
+    const currentHeight = parseInt(bar.current.height)||40;
+    bar.style.height = currentHeight + 20 + "%";
+  };
+
     const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
     const updateTime=()=>{
@@ -44,7 +51,7 @@
 </script>
 
 <template>
-
+    <div class="mode">
     <div class="topPanel">
         
     <div class="topapps">
@@ -69,10 +76,10 @@ bluetooth
     <div class="secRight">
         <div class="brightness"><span class="material-symbols-outlined" id="sunIcon">
 clear_day
-</span></div>
+</span><div class="brightnessBar"></div></div>
         <div class="audio"><span class="material-symbols-outlined" id="volumeIcon">
 volume_up
-</span></div>
+</span><div class="volumeBar" @mousedown="changeHeight"></div></div>
     </div>
     </div>
     <div class="apps">
@@ -107,9 +114,14 @@ energy_program_saving
 </span></div>
     </div>
     </div>
+    </div>
 </template>
 
 <style scoped>
+    .mode{
+        height:100%;
+        width:100%;
+    }
     .topPanel{
         background:url("/assets/forest_background.jpg");
         background-size:cover;
@@ -193,8 +205,8 @@ energy_program_saving
     .wifi{
         display: flex;
         background-color: rgba(0,0,0,0.7);
-        width:12vw;
-        height:10vh;
+        width:190px;
+        height:70px;
         border-radius: 40px;
         backdrop-filter: blur(2px);
         border: 0.0002px solid grey;
@@ -213,8 +225,8 @@ energy_program_saving
     .bluetooth{
         display: flex;
         background-color: rgba(0,0,0,0.7);
-        width:12vw;
-        height:10vh;
+        width:190px;
+        height:70px;
         border-radius: 40px;
         backdrop-filter: blur(2px);
         border: 0.0002px solid grey;
@@ -233,8 +245,8 @@ energy_program_saving
         display:flex;
     }
     .brightness{
-        height:22vh;
-        width:5vw;
+        height:160px;
+        width:70px;
         display: flex;
         background-color: rgba(0,0,0,0.7);
         border-radius: 40px;
@@ -243,10 +255,11 @@ energy_program_saving
         margin:5px;
         justify-content: center;
         align-items: flex-end;
+        overflow: hidden;
     }
     .audio{
-        height:22vh;
-        width:5vw;
+        height:160px;
+        width:70px;
         display: flex;
         background-color: rgba(0,0,0,0.7);
         border-radius: 40px;
@@ -255,14 +268,35 @@ energy_program_saving
         margin:5px;
         justify-content: center;
         align-items: flex-end;
+        overflow: hidden;
     }
     #volumeIcon{
         padding:20px;
         font-size: 2rem;
+        position:relative;
     }
     #sunIcon{
         padding:20px;
         font-size: 2rem;
+        position:relative;
+    }
+    .volumeBar{
+        position:absolute;
+        width:100%;
+        height:40%;
+        background-color:rgba(255,255,255,0.6);
+    }
+    .volumeBar:hover{
+        cursor: pointer;
+    }
+    .brightnessBar{
+        position:absolute;
+        width:100%;
+        height:40%;
+        background-color:rgba(255,255,255,0.6);
+    }
+    .brightnessBar:hover{
+        cursor: pointer;
     }
     .apps{
         margin:25px;
