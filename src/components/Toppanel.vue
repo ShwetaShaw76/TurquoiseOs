@@ -15,16 +15,76 @@
     };
 
     const barHeight = ref(40);
+    const volumeLevel = ref(40);
+    const brightnessLevel = computed(() => (barHeight.value/100)*1.5);
+
+    const changeBrightness = (event) => {
+        event.preventDefault();
+        const startY = event.clientY;
+
+        const onPointerMove = (moveEvent) => {
+            const deltaY = startY - moveEvent.clientY;
+            if (deltaY > 0) {
+                changeHeight();
+            } else {
+                decreaseHeight();
+            }
+        };
+
+        const oPointerUp = () => {
+            window.removeEventListener('pointermove', onPointerMove);
+            window.removeEventListener('pointerup', oPointerUp);
+        };
+
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', oPointerUp);
+    };
+
+    const changeVolume = (event)=>{
+        event.preventDefault();
+        const currentY = event.clientY;
+
+        const onMouseMove = (moveEvent) => {
+            const changeInY = currentY - moveEvent.clientY;
+            if (changeInY > 0) {
+                increaseVolume();
+            } else {
+                decreaseVolume();
+            }
+        };
+
+        const onMouseUp = () => {
+            window.removeEventListener('pointermove', onMouseMove);
+            window.removeEventListener('pointerup', onMouseUp);
+        };
+
+        window.addEventListener('pointermove', onMouseMove);
+        window.addEventListener('pointerup', onMouseUp);
+    }
 
 const changeHeight = () => {
   if (barHeight.value < 100) {
-    barHeight.value += 20;
+    barHeight.value += 5;
   }
 };
 
 const decreaseHeight=()=>{
     if(barHeight.value>0){
-        barHeight.value -=20;
+        barHeight.value -=5;
+    }
+};
+
+const increaseVolume = () => {
+  if (volumeLevel.value < 100) {
+    volumeLevel.value += 5;
+    window.setVolume(volumeLevel.value/100);
+  }
+};
+
+const decreaseVolume=()=>{
+    if(volumeLevel.value > 0){
+        volumeLevel.value -= 5;
+        window.setVolume(volumeLevel.value/100);
     }
 };
 
@@ -58,7 +118,7 @@ const decreaseHeight=()=>{
 </script>
 
 <template>
-    <div class="mode">
+    <div class="mode" ref="mode" :style="{ filter: `brightness(${brightnessLevel})` }">
     <div class="topPanel">
         
     <div class="topapps">
@@ -81,12 +141,12 @@ bluetooth
 </span><p class="bluetoothText">Bluetooth</p></div>
     </div>
     <div class="secRight">
-        <div class="brightness"><span class="material-symbols-outlined" id="sunIcon">
+        <div class="brightness" @pointerdown="changeBrightness"><span class="material-symbols-outlined" id="sunIcon">
 clear_day
-</span><div class="brightnessBar" :style="{height: barHeight+'%'}" @click="changeHeight" @dblclick="decreaseHeight"></div></div>
-        <div class="audio"><span class="material-symbols-outlined" id="volumeIcon">
+</span><div class="brightnessBar" :style="{height: barHeight+'%'}" ></div></div>
+        <div class="audio" @pointerdown="changeVolume"><span class="material-symbols-outlined" id="volumeIcon">
 volume_up
-</span><div class="volumeBar" ></div></div>
+</span><div class="volumeBar" :style="{height: volumeLevel+'%'}"></div></div>
     </div>
     </div>
     <div class="apps">
