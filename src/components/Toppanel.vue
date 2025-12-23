@@ -14,12 +14,13 @@
         active.value[index] = !active.value[index];
     };
 
-    const changeHeight = (event) => {
-    const bar = event.target;
+    const barHeight = ref(40);
 
-    const currentHeight = parseInt(bar.current.height)||40;
-    bar.style.height = currentHeight + 20 + "%";
-  };
+const changeHeight = () => {
+  if (barHeight.value < 100) {
+    barHeight.value += 20;
+  }
+};
 
     const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
@@ -76,10 +77,10 @@ bluetooth
     <div class="secRight">
         <div class="brightness"><span class="material-symbols-outlined" id="sunIcon">
 clear_day
-</span><div class="brightnessBar"></div></div>
+</span><div class="brightnessBar" :style="{height: barHeight+'%'}" @mousedown="changeHeight"></div></div>
         <div class="audio"><span class="material-symbols-outlined" id="volumeIcon">
 volume_up
-</span><div class="volumeBar" @mousedown="changeHeight"></div></div>
+</span><div class="volumeBar" ></div></div>
     </div>
     </div>
     <div class="apps">
@@ -283,7 +284,7 @@ energy_program_saving
     .volumeBar{
         position:absolute;
         width:100%;
-        height:40%;
+        transition:height 0.2s ease-in-out;
         background-color:rgba(255,255,255,0.6);
     }
     .volumeBar:hover{
@@ -292,7 +293,7 @@ energy_program_saving
     .brightnessBar{
         position:absolute;
         width:100%;
-        height:40%;
+        transition:height 0.2s ease-in-out;
         background-color:rgba(255,255,255,0.6);
     }
     .brightnessBar:hover{
