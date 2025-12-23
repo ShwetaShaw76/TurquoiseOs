@@ -7,7 +7,7 @@
     const day = ref('');
 
     let timer;
-
+    const sensitivity = 0.33;
     const active = ref(Array(11).fill(false));
 
     const changeColor = (index) => {
@@ -16,7 +16,7 @@
 
     const barHeight = ref(40);
     const volumeLevel = ref(40);
-    const brightnessLevel = computed(() => (barHeight.value/100)*1.5);
+    const brightnessLevel = computed(() => (barHeight.value/100)*2);
 
     const changeBrightness = (event) => {
         event.preventDefault();
@@ -64,26 +64,26 @@
 
 const changeHeight = () => {
   if (barHeight.value < 100) {
-    barHeight.value += 5;
+    barHeight.value += (5*sensitivity);
   }
 };
 
 const decreaseHeight=()=>{
     if(barHeight.value>0){
-        barHeight.value -=5;
+        barHeight.value -=(5*sensitivity);
     }
 };
 
 const increaseVolume = () => {
   if (volumeLevel.value < 100) {
-    volumeLevel.value += 5;
+    volumeLevel.value += (5*sensitivity);
     window.setVolume(volumeLevel.value/100);
   }
 };
 
 const decreaseVolume=()=>{
     if(volumeLevel.value > 0){
-        volumeLevel.value -= 5;
+        volumeLevel.value -= (5*sensitivity);
         window.setVolume(volumeLevel.value/100);
     }
 };
