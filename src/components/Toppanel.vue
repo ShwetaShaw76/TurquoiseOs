@@ -22,6 +22,12 @@ const changeHeight = () => {
   }
 };
 
+const decreaseHeight=()=>{
+    if(barHeight.value>0){
+        barHeight.value -=20;
+    }
+};
+
     const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
     const updateTime=()=>{
@@ -77,7 +83,7 @@ bluetooth
     <div class="secRight">
         <div class="brightness"><span class="material-symbols-outlined" id="sunIcon">
 clear_day
-</span><div class="brightnessBar" :style="{height: barHeight+'%'}" @mousedown="changeHeight"></div></div>
+</span><div class="brightnessBar" :style="{height: barHeight+'%'}" @click="changeHeight" @dblclick="decreaseHeight"></div></div>
         <div class="audio"><span class="material-symbols-outlined" id="volumeIcon">
 volume_up
 </span><div class="volumeBar" ></div></div>
