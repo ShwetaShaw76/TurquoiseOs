@@ -6,9 +6,14 @@
     const d=ref(0);
     const day = ref('');
 
+    const percentage = ref(null);
+
     let timer;
-    const sensitivity = 0.33;
+    const sensitivity = 0.23;
     const active = ref(Array(11).fill(false));
+    active.value[0]=true;
+    active.value[1]=true;
+    active.value[3]=true;
 
     const changeColor = (index) => {
         active.value[index] = !active.value[index];
@@ -100,8 +105,25 @@ const decreaseVolume=()=>{
 
     onMounted(()=>{
         updateTime();
+        if('getBattery' in navigator){
+        navigator.getBattery().then((battery) => {
+            
+            const updateBattery = () => {
+                percentage.value = Math.floor(battery.level * 100);
+                
+            };
+
+            updateBattery();
+
+            battery.addEventListener('levelchange', updateBattery);
+        });
+    }
         timer = setInterval(updateTime(),1000);
     });
+
+    if(percentage.value <= 30){
+        active.value[8]=true;
+    }
 
     onUnmounted(()=>{
         clearInterval(timer);

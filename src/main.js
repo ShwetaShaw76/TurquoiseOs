@@ -20,8 +20,15 @@ topPanel.use(router)
 homeScreen.use(router)
 appScreen.use(router)
 
-// screen.mount('#app')
+
 // langSelc.mount("#app")
-topPanel.mount('#app')
-// homeScreen.mount('#app')
+
+
 // appScreen.mount('#app')
+
+screen.mount('#app');
+
+setTimeout(()=>{
+    // homeScreen.mount('#app')
+    topPanel.mount('#app')
+},5000);
