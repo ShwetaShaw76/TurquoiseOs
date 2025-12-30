@@ -16,6 +16,19 @@
     active.value[3]=true;
     active.value[9]=true;
 
+    console.log(active.value[4])
+
+    const flight_mode=()=>{
+    if(active.value[4]){
+        active.value[9]=false;
+        active.value[0]=false;
+    }
+    else{
+        active.value[9]=true;
+        active.value[0]=true;
+    }
+}
+
 
     const changeColor = (index) => {
         active.value[index] = !active.value[index];
@@ -189,7 +202,7 @@ arrow_downward_alt
         <div class="app" :class="{active:active[3]}" @click="changeColor(3)"><span class="material-symbols-outlined icons">
 location_on
 </span></div>
-        <div class="app" :class="{active:active[4]}" @click="changeColor(4)"><span class="material-symbols-outlined icons">
+        <div class="app" :class="{active:active[4]}" @click="changeColor(4),flight_mode()"><span class="material-symbols-outlined icons">
 flight
 </span></div>
         <div class="app" :class="{active:active[5]}" @click="changeColor(5)"><span class="material-symbols-outlined icons">
