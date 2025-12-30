@@ -1,7 +1,36 @@
 <script setup>
     import Header from './Header.vue';
-
+    import { useRouter } from 'vue-router';
     import { computed, ref, onMounted, onUnmounted} from 'vue';
+
+    const router = useRouter();
+
+    const TouchStartY = ref(0);
+    const TouchEndY = ref(0);
+    const minSwipeDis = 50;
+    const dragSource = ref(null);
+
+    const startDrag = (e, source) =>{
+        TouchStartY.value = e.clientY;
+        dragSource.value = source;
+    }
+
+    const endDrag = (e) =>{
+        if (!dragSource.value) return;
+        TouchEndY.value = e.clientY;
+        const distance = TouchEndY.value - TouchStartY.value;
+        if(dragSource.value == 'header'){
+            if(distance > minSwipeDis){
+                router.push('/TopPanel')
+            }
+        }
+        if(dragSource.value == 'footer'){
+            if(distance < -minSwipeDis){
+                router.push('/Appscreen')
+            }
+        }
+        dragSource.value = null;
+    }
     
     const hrs=ref(0);
     const mins=ref(0);
@@ -25,10 +54,12 @@
     onMounted(()=>{
         updateTime();
         timer = setInterval(updateTime,1000);
+        window.addEventListener('mouseup', endDrag);
     });
 
     onUnmounted(()=>{
         clearInterval(timer);
+        window.removeEventListener('mouseup',endDrag);
     })
 
     const time = computed(() => {
@@ -49,10 +80,12 @@
 
 <template>
     <div class="background">
-        <header><Header></Header></header>
+    <header @mousedown="(e)=>startDrag(e,'header')"
+        ><Header></Header>
+    </header>
         <div class="midsection">
            <div class="day">{{ crrday }}</div><div class="time">{{ time }}</div><div class="date">{{ date }}{{ month }}</div>
-           <div class="googleBar">
+           <div class="googleBar" @click="">
             <img src="/assets/google_logo.jpg" alt="google_logo" id="googleLogo">
             <div class="otherServ">
                 <span class="material-symbols-outlined" id="micIcon">
@@ -65,7 +98,7 @@
         </div>
         </div>
         <footer>
-        <div class="bottomApps">
+        <div class="bottomApps" @mousedown="(e)=>startDrag(e, 'footer')">
             <div class="camera"><img src="/assets/camera_logo.jpg" alt="camera" id="cameraIcon" class="icon"></div>
             <div class="browser"><img src="/assets/chrome_logo.png" alt="chrome" id="chromeIcon" class="icon"></div>
             <div class="phone"><img src="/assets/phone_logo.png" alt="phone" id="phoneIcon" class="icon"></div>
