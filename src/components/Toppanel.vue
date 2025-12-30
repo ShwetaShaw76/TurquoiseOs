@@ -14,6 +14,8 @@
     active.value[0]=true;
     active.value[1]=true;
     active.value[3]=true;
+    active.value[9]=true;
+
 
     const changeColor = (index) => {
         active.value[index] = !active.value[index];
@@ -178,10 +180,11 @@ arrow_upward_alt
 arrow_downward_alt
 </span></div>
         <div class="app" :class="{active:active[1]}" @click="changeColor(1)"><span class="material-symbols-outlined icons">
-notifications
+{{ active[1] ? 'notifications' : 'notifications_off' }}
+
 </span></div>
         <div class="app" :class="{active:active[2]}" @click="changeColor(2)"><span class="material-symbols-outlined icons">
-flashlight_off
+{{ active[2] ? 'flashlight_on' : 'flashlight_off' }}
 </span></div>
         <div class="app" :class="{active:active[3]}" @click="changeColor(3)"><span class="material-symbols-outlined icons">
 location_on
@@ -193,7 +196,7 @@ flight
 mobile_rotate
 </span></div>
         <div class="app" :class="{active:active[6]}" @click="changeColor(6)"><span class="material-symbols-outlined icons">
-do_not_disturb_off
+{{ active[6]?'do_not_disturb_on':'do_not_disturb_off' }}
 </span></div>
         <div class="app" :class="{active:active[7]}" @click="changeColor(7)"><span class="material-symbols-outlined icons">
 wifi_tethering

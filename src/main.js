@@ -26,9 +26,12 @@ appScreen.use(router)
 
 // appScreen.mount('#app')
 
+
 screen.mount('#app');
 
 setTimeout(()=>{
     // homeScreen.mount('#app')
     topPanel.mount('#app')
 },5000);
+
+
