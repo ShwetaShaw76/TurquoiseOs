@@ -302,10 +302,10 @@ energy_program_saving
         padding-left:5px;
     }
     .wifi.active{
-    background-color: skyblue;     
+    background-color: darkblue;     
     }
     .bluetooth.active {
-    background-color: skyblue;
+    background-color: darkblue;
     }
     .wifi{
         display: flex;
@@ -432,6 +432,6 @@ energy_program_saving
         background-color: rgba(0,0,0,0.6);
     }
     .app.active{
-        background-color: skyblue;
+        background-color: darkblue;
     }
 </style>
