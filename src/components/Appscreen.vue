@@ -1,17 +1,52 @@
 <script setup>
     import Header from './Header.vue';
+    import { ref,onMounted,onUnmounted } from 'vue';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
+
+    const TouchStartY = ref(0);
+    const TouchEndY = ref(0);
+    const minSwipeDis = 50;
+    const dragSource = ref(null);
+
+    const startDrag = (e, source) =>{
+        TouchStartY.value = e.clientY;
+        dragSource.value = source;
+    }
+
+    const endDrag = (e) =>{
+        if (!dragSource.value) return;
+        TouchEndY.value = e.clientY;
+        const distance = TouchEndY.value - TouchStartY.value;
+        if(dragSource.value == 'header'){
+            if(distance > minSwipeDis){
+                router.push('/TopPanel')
+            }
+        }
+        dragSource.value = null;
+    }
+
+    onMounted(()=>{
+        window.addEventListener('mouseup',endDrag)
+    })
+
+    onUnmounted(()=>{
+        window.removeEventListener('mouseup',endDrag)
+    })
 </script>
 
 <template>
     <div class="bg">
-        <header><Header></Header></header>
+        <header @mousedown="(e)=>startDrag(e,'header')"
+        ><Header></Header></header>
         <div class="body">
             <div class="top">
                 <div class="searchbar">
                     <span class="material-symbols-outlined" id="searchIcon">
                     search
                     </span>
-                    Search
+                    <input type="text" name="search_word" id="srchKey" placeholder="Search">
                 </div>
             </div>
             <div class="apps">
@@ -73,6 +108,18 @@
     .searchbar:focus{
         background-color:rgba(255,255,255,0.4);
         transition:all ease-in-out;
+    }
+    #srchKey{
+        background:rgba(0,0,0,0);
+        border: none;
+        color:white;
+        height:100%;
+        width:100%;
+        font-size:1.5rem;
+    }
+    #srchKey:focus{
+        border:none;
+        outline:none;
     }
     .apps{
         width:100%;

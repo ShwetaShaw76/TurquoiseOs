@@ -59,7 +59,7 @@
 
     onUnmounted(()=>{
         clearInterval(timer);
-        window.removeEventListener('mouseup',endDrag);
+        window.removeEventListener('mouseup',endDrag)
     })
 
     const time = computed(() => {
