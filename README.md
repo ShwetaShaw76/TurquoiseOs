@@ -16,3 +16,4 @@
 - Any app won't work as it was not my primary goal to make apps( I just wanted to design Os) 
 - The Search Bar at the appScreen is not functional
 - any changes in the topPanel will not be shown in the top bar in the homeScreen 
+- Only optimized for laptop or computer, in small screen the webpage enlarges
