@@ -85,7 +85,7 @@
     </header>
         <div class="midsection">
            <div class="day">{{ crrday }}</div><div class="time">{{ time }}</div><div class="date">{{ date }}{{ month }}</div>
-           <div class="googleBar" @click="">
+           <div class="googleBar">
             <img src="/assets/google_logo.jpg" alt="google_logo" id="googleLogo">
             <div class="otherServ">
                 <span class="material-symbols-outlined" id="micIcon">
