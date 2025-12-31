@@ -1,5 +1,23 @@
 <script setup>
     import Header from './Header.vue';
+    import { useRouter } from 'vue-router';
+    import { ref } from 'vue';
+
+    const name =  ref(null);
+
+    console.log(name.value)
+
+    const router = useRouter();
+
+    const pass = () =>{
+        if(name.value == null){
+            prompt("Please fill the name");
+        }
+        else{
+            router.push('/HomeScreen');
+        }
+    }
+
 </script>
 
 <template>
@@ -10,13 +28,13 @@
         <div class="prompt">
             <h1 class="heading">Device configuration</h1>
             <p>Enter name in the device :</p>
-            <input type="text" name="Name" id="nm">
+            <input type="text" name="Name" id="nm" ref="name">
             <p>Select language of your prefrence:</p>
             <select name="language" id="lang">
                 <option value="english">English</option>
             </select>
             <div class="buttonhandle">
-            <button class="done">Complete</button>
+            <button class="done" @click="pass">Complete</button>
             </div>
         </div>
         

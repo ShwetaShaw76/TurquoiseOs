@@ -2,11 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Homescreen from '@/components/Homescreen.vue'
 import Toppanel from '@/components/Toppanel.vue'
 import Appscreen from '@/components/Appscreen.vue'
+import Language from '@/components/Language.vue'
 
 const routes = [
-  { path:'/' , component:Homescreen},
+  { path:'/' , component:Language},
+  { path:'/HomeScreen' , component:Homescreen},
   { path:'/Toppanel' , component:Toppanel},
-  { path:'/Appscreen' , component:Appscreen}
+  { path:'/Appscreen' , component:Appscreen},
 ]
 
 const router = createRouter({
