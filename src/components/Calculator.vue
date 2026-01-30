@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router';
             <div class="btn" id="del"><span class="material-symbols-outlined" id="sym">
 arrow_circle_left
 </span></div>
-            <div class="btn" id="div"></div>
+            <div class="btn" id="div">/</div>
             <div class="btn" id="7">7</div>
             <div class="btn" id="8">8</div>
             <div class="btn" id="9">9</div>
