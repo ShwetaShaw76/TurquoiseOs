@@ -60,10 +60,16 @@ import { useRouter } from 'vue-router';
     width:13vh;
     border:0.5px solid white;
     border-radius:100%;
-    box-shadow:0px 0px 5px 3px rgba(255,255,255,0.5);
-    background:rgba(0,0,0,0.2);
+    box-shadow:0px 0px 5px 0.5px rgba(255,255,255,0.5) inset;
+    background:rgba(255,255,255,0.12);
     display:flex;
     justify-content:center;
     align-items:center;
+    font-size:2rem;
+}
+.btn:hover{
+    cursor:pointer;
+    scale:0.97;
+    box-shadow:0px 0px 15px 9px rgba(255,255,255,0.5) inset;
 }
 </style>
