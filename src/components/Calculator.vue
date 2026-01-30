@@ -8,13 +8,17 @@ import { useRouter } from 'vue-router';
         <div class="display"></div>
         <div class="buttons">
             <div class="btn" id="ac">AC</div>
-            <div class="btn" id="div">%</div>
-            <div class="btn" id="del"></div>
+            <div class="btn" id="rem">%</div>
+            <div class="btn" id="del"><span class="material-symbols-outlined" id="sym">
+arrow_circle_left
+</span></div>
             <div class="btn" id="div"></div>
             <div class="btn" id="7">7</div>
             <div class="btn" id="8">8</div>
             <div class="btn" id="9">9</div>
-            <div class="btn" id="mul"></div>
+            <div class="btn" id="mul"><span class="material-symbols-outlined" id="sym">
+close
+</span></div>
             <div class="btn" id="4">4</div>
             <div class="btn" id="5">5</div>
             <div class="btn" id="6">6</div>
@@ -71,5 +75,8 @@ import { useRouter } from 'vue-router';
     cursor:pointer;
     scale:0.97;
     box-shadow:0px 0px 15px 9px rgba(255,255,255,0.5) inset;
+}
+#sym{
+    font-size:2.5rem;
 }
 </style>
