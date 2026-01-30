@@ -79,4 +79,14 @@ close
 #sym{
     font-size:2.5rem;
 }
+#res{
+    background:orange;
+    font-size:3rem;
+}
+#sum{
+    font-size:3rem;
+}
+#sub{
+    font-size:4rem;
+}
 </style>
