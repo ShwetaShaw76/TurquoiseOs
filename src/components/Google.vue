@@ -33,13 +33,10 @@
     }
 
     onMounted(()=>{
-        updateTime();
-        timer = setInterval(updateTime,1000);
         window.addEventListener('mouseup', endDrag);
     });
 
     onUnmounted(()=>{
-        clearInterval(timer);
         window.removeEventListener('mouseup',endDrag)
     })
 </script>

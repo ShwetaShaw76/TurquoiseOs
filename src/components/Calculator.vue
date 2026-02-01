@@ -33,13 +33,10 @@
     }
 
     onMounted(()=>{
-        updateTime();
-        timer = setInterval(updateTime,1000);
         window.addEventListener('mouseup', endDrag);
     });
 
     onUnmounted(()=>{
-        clearInterval(timer);
         window.removeEventListener('mouseup',endDrag)
     })
 
@@ -124,7 +121,7 @@ function result(){
   justify-content: flex-end;
   align-items: center;
   font-size: 3rem;
-  height: 25vh;
+  height: 22vh;
 }
 .buttons {
   padding: 10px;
