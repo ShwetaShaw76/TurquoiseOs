@@ -4,13 +4,15 @@ import Toppanel from '@/components/Toppanel.vue'
 import Appscreen from '@/components/Appscreen.vue'
 import Language from '@/components/Language.vue'
 import Calculator from '@/components/Calculator.vue'
+import Google from '@/components/Google.vue'
 
 const routes = [
   // { path:'/' , component:Language},
-  { path:'/' , component:Calculator},
+  { path:'/Calculator' , component:Calculator},
   { path:'/HomeScreen' , component:Homescreen},
   { path:'/Toppanel' , component:Toppanel},
   { path:'/Appscreen' , component:Appscreen},
+  { path:'/' , component:Google},
 ]
 
 const router = createRouter({
