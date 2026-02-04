@@ -5,6 +5,7 @@ import Appscreen from '@/components/Appscreen.vue'
 import Language from '@/components/Language.vue'
 import Calculator from '@/components/Calculator.vue'
 import Google from '@/components/Google.vue'
+import Phone from '@/components/Phone.vue'
 
 const routes = [
   // { path:'/' , component:Language},
@@ -12,7 +13,8 @@ const routes = [
   { path:'/HomeScreen' , component:Homescreen},
   { path:'/Toppanel' , component:Toppanel},
   { path:'/Appscreen' , component:Appscreen},
-  { path:'/' , component:Google},
+  { path:'/Google' , component:Google},
+  { path:'/' , component:Phone},
 ]
 
 const router = createRouter({
