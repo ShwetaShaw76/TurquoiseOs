@@ -43,8 +43,11 @@ import Header from './Header.vue';
 <template>
     <div class="contacts">
         <header @mousedown="(e)=>startDrag(e,'header')"><Header></Header></header>
-        <div class="menu"><div class="dialer">Dialer</div><div class="contacts">Contacts</div></div>
+        <div class="menu"><div class="dialer">Dialer</div><div class="contact">Contacts</div></div>
         <div class="heading">Calls</div>
+        <div class="calls">
+            
+        </div>
     </div>
 </template>
 
@@ -63,20 +66,32 @@ import Header from './Header.vue';
     padding:5px 13px;
 }
 .menu{
-    color:white;
     display:flex;
     flex-direction:row;
+    color:white;
+    gap:4px;
+    border:0.5px solid grey;
     width:fit-content;
-    height:fit-content;
+    border-radius:20px;
+    margin-left:35%;
+    margin-top:4px;
 }
 .dialer{
     padding:4px 12px;
     border-radius:20px;
 }
+.contact{
+    padding:6px 12px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.1);
+}
 .dialer:hover{
     cursor:pointer;
 }
-.contacts:hover{
+.contact:hover{
     cursor:pointer;
+}
+.calls{
+    width:100%;
 }
 </style>
