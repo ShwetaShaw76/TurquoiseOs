@@ -6,6 +6,7 @@ import Language from '@/components/Language.vue'
 import Calculator from '@/components/Calculator.vue'
 import Google from '@/components/Google.vue'
 import Phone from '@/components/Phone.vue'
+import Contacts from '@/components/Contacts.vue'
 
 const routes = [
   // { path:'/' , component:Language},
@@ -14,7 +15,8 @@ const routes = [
   { path:'/Toppanel' , component:Toppanel},
   { path:'/Appscreen' , component:Appscreen},
   { path:'/Google' , component:Google},
-  { path:'/' , component:Phone},
+  { path:'/Phone' , component:Phone},
+  { path:'/' , component:Contacts},
 ]
 
 const router = createRouter({
