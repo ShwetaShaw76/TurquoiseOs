@@ -54,8 +54,7 @@ import Header from './Header.vue';
                 <div class="name">Bob</div>
                 <div class="num">+91 44444 55555</div>
             </div>
-            <div class="date">Yesterday</div>  
-        <div class="brdr"></div> 
+            <div class="date">Yesterday</div> 
         </div>
     </div>
     </div>
@@ -135,10 +134,5 @@ import Header from './Header.vue';
 #icon{
     font-size:2rem;
     color:grey;
-}
-.brdr{
-    height:1px;
-    background:grey;
-    margin:10px;
 }
 </style>
