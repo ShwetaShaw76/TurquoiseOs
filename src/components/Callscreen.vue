@@ -44,7 +44,45 @@
 <template>
     <div class="callScreen">
         <header @mousedown="(e)=startDrag(e,'header')"><Header></Header></header>
+        <div class="top">
+        <div class="name">Bob</div>
+        <div class="num">+91 44444 55555</div>
+        <div class="call">Calling</div>
+        </div>
+        <div class="bottom">
+            <div class="btn"></div>
+            <div class="btn"><span class="material-symbols-outlined">
+pause
+</span></div>
+            <div class="btn"><span class="material-symbols-outlined">
+add
+</span></div>
+            <div class="btn"><span class="material-symbols-outlined">
+mic_off
+</span></div>
+            <div class="btn"><span class="material-symbols-outlined">
+video_camera_front
+</span></div>
+            <div class="btn"><span class="material-symbols-outlined">
+robot_2
+</span></div>
+            <div class="btn"><span class="material-symbols-outlined">
+volume_up
+</span></div>
+            <div class="btn"><span class="material-symbols-outlined">
+call_end
+</span><span class="material-symbols-outlined">
+dialpad
+</span></div>
+        </div>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.callScreen{
+    height:100vh;
+    aspect-ratio:9/16;
+    display:flex;
+    flex-direction:column;
+}
+</style>
