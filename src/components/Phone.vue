@@ -52,12 +52,16 @@ import Header from './Header.vue';
         let k = num.value.length;
         num.value = num.value.substring(0,k-1);
     }
+
+    function gotoContacts(){
+        router.push('/Contacts')
+    }
 </script>
 
 <template>
     <div class="bg">
         <header @mousedown="(e)=>startDrag(e,'header')"><Header></Header></header>
-        <div class="menu"><div class="dialer">Dialer</div><div class="contacts">Contacts</div></div>
+        <div class="menu"><div class="dialer">Dialer</div><div class="contacts" @click="gotoContacts()">Contacts</div></div>
         <div class="heading">Dialer</div>
         <div class="num">{{ num }}</div>
         <div class="numpad">

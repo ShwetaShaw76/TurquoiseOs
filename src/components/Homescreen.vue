@@ -76,6 +76,14 @@
     const month = computed(()=>{
         return `${mnth.value}`
     })
+
+    function gotoBrowser(){
+        router.push('/Google')
+    }
+
+    function gotoPhone(){
+        router.push('/Phone')
+    }
 </script>
 
 <template>
@@ -85,7 +93,7 @@
     </header>
         <div class="midsection">
            <div class="day">{{ crrday }}</div><div class="time">{{ time }}</div><div class="date">{{ date }}{{ month }}</div>
-           <div class="googleBar">
+           <div class="googleBar" @click="gotoBrowser()">
             <img src="/assets/google_logo.jpg" alt="google_logo" id="googleLogo">
             <div class="otherServ">
                 <span class="material-symbols-outlined" id="micIcon">
@@ -100,8 +108,8 @@
         <footer>
         <div class="bottomApps" @mousedown="(e)=>startDrag(e, 'footer')">
             <div class="camera"><img src="/assets/camera_logo.jpg" alt="camera" id="cameraIcon" class="icon"></div>
-            <div class="browser"><img src="/assets/chrome_logo.png" alt="chrome" id="chromeIcon" class="icon"></div>
-            <div class="phone"><img src="/assets/phone_logo.png" alt="phone" id="phoneIcon" class="icon"></div>
+            <div class="browser" @click="gotoBrowser()"><img src="/assets/chrome_logo.png" alt="chrome" id="chromeIcon" class="icon"></div>
+            <div class="phone" @click="gotoPhone()"><img src="/assets/phone_logo.png" alt="phone" id="phoneIcon" class="icon"></div>
             <div class="messages"><img src="/assets/messages_logo.png" alt="" id="messagesIcon" class="icon"></div>
         </div>
         </footer>

@@ -34,6 +34,18 @@
     onUnmounted(()=>{
         window.removeEventListener('mouseup',endDrag)
     })
+
+    function gotoCalculator(){
+        router.push('/Calculator')
+    }
+
+    function gotoBrowser(){
+        router.push('/Google')
+    }
+
+    function gotoPhone(){
+        router.push('/Phone')
+    }
 </script>
 
 <template>
@@ -50,13 +62,13 @@
                 </div>
             </div>
             <div class="apps">
-                <div class="calculator"><img src="/assets/calculator_logo.png" alt="calculator" id="calculatorIcon" class="icon"><p class="appName">Calculator</p></div>
+                <div class="calculator" @click="gotoCalculator()"><img src="/assets/calculator_logo.png" alt="calculator" id="calculatorIcon" class="icon"><p class="appName">Calculator</p></div>
                 <div class="camera"><img src="/assets/camera_logo.jpg" alt="camera" id="cameraIcon" class="icon"><p class="appName">Camera</p></div>
-            <div class="browser"><img src="/assets/chrome_logo.png" alt="chrome" id="chromeIcon" class="icon"><p class="appName">Chrome</p></div>
+            <div class="browser" @click="gotoBrowser()"><img src="/assets/chrome_logo.png" alt="chrome" id="chromeIcon" class="icon"><p class="appName">Chrome</p></div>
             <div class="gallery"><img src="/assets/gallery_logo.png" alt="gallery" id="galleryIcon" class="icon"><p class="appName">Gallery</p></div>
             <div class="messages"><img src="/assets/messages_logo.png" alt="" id="messagesIcon" class="icon"><p class="appName">Messages</p></div>
             <div class="music"><img src="/assets/music_logo.png" alt="music" id="musicIcon" class="icon"><p class="appName">Music</p></div>
-            <div class="phone"><img src="/assets/phone_logo.png" alt="phone" id="phoneIcon" class="icon"><p class="appName">Phone</p></div>
+            <div class="phone" @click="gotoPhone()"><img src="/assets/phone_logo.png" alt="phone" id="phoneIcon" class="icon"><p class="appName">Phone</p></div>
             <div class="settings"><img src="/assets/settings_logo.webp" alt="settings" id="settingsIcon" class="icon"><p class="appName">Settings</p></div>
             </div>
         </div>

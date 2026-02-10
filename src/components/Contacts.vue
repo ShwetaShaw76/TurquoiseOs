@@ -38,19 +38,28 @@ import Header from './Header.vue';
 
     onUnmounted(()=>{
         window.removeEventListener('mouseup',endDrag);
-    })</script>
+    })
+    
+    function gotoCall(){
+        router.push('/CallScreen')
+    }
+
+    function gotoDialer(){
+        router.push('/Phone')
+    }
+    </script>
 
 <template>
     <div class="contacts">
         <header @mousedown="(e)=>startDrag(e,'header')"><Header></Header></header>
-        <div class="menu"><div class="dialer">Dialer</div><div class="contact">Contacts</div></div>
+        <div class="menu"><div class="dialer" @click="gotoDialer()">Dialer</div><div class="contact">Contacts</div></div>
         <div class="heading">Calls</div>
         <div class="calls">
         <div class="call">
             <div class="icon"><span class="material-symbols-outlined" id="icon">
                 arrow_insert
             </span></div>
-            <div class="nm">
+            <div class="nm" @click="gotoCall()">
                 <div class="name">Bob</div>
                 <div class="num">+91 44444 55555</div>
             </div>
