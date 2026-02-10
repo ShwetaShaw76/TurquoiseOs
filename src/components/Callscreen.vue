@@ -172,6 +172,12 @@ dialpad
 .btn:hover{
     cursor:pointer;
 }
+.bg-t:hover{
+    cursor:pointer;
+}
+.bg-w:hover{
+    cursor:pointer;
+}
 .bottom{
     padding:17px;
     display: grid;
