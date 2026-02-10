@@ -10,7 +10,7 @@ import Contacts from '@/components/Contacts.vue'
 import Callscreen from '@/components/Callscreen.vue'
 
 const routes = [
-  // { path:'/' , component:Language},
+  { path:'/' , component:Language},
   { path:'/Calculator' , component:Calculator},
   { path:'/HomeScreen' , component:Homescreen},
   { path:'/Toppanel' , component:Toppanel},
@@ -18,7 +18,7 @@ const routes = [
   { path:'/Google' , component:Google},
   { path:'/Phone' , component:Phone},
   { path:'/Contacts' , component:Contacts},
-  { path:'/' , component:Callscreen},
+  { path:'/CallScreen' , component:Callscreen},
 ]
 
 const router = createRouter({

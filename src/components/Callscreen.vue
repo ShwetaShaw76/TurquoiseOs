@@ -39,41 +39,57 @@
     onUnmounted(()=>{
         window.removeEventListener('mouseup',endDrag)
     })
+
+    function endCall(){
+        router.push('/Homescreen')
+    }
+
+    function dialpad(){
+        router.push('/Phone')
+    }
+
+    const isActive =ref(Array(8).fill(false));
+
+    const toggleChange=(index)=>{
+        isActive.value[index] = !isActive.value[index];
+    }
 </script>
 
 <template>
     <div class="callScreen">
         <div class="scnd">
-        <header @mousedown="(e)=startDrag(e,'header')"><Header></Header></header>
+            <header @mousedown="(e)=startDrag(e,'header')"><Header></Header></header>
         <div class="top">
         <div class="name">Bob</div>
         <div class="num">+91 44444 55555</div>
         <div class="call">Calling</div>
         </div>
         <div class="bottom">
-            <div class="btn"></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div :class="{'bg-w':isActive[0] , 'bg-t':!isActive[0]}" @click="toggleChange(0)"><span class="material-symbols-outlined sym">
+save
+</span></div>
+            <div :class="{'bg-w':isActive[1] , 'bg-t':!isActive[1]}" @click="toggleChange(1)"><span class="material-symbols-outlined sym">
 pause
 </span></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div :class="{'bg-w':isActive[2] , 'bg-t':!isActive[2]}" @click="toggleChange(2)"><span class="material-symbols-outlined sym">
 add
 </span></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div :class="{'bg-w':isActive[3] , 'bg-t':!isActive[3]}" @click="toggleChange(3)"><span class="material-symbols-outlined sym">
 mic_off
 </span></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div :class="{'bg-w':isActive[4] , 'bg-t':!isActive[4]}" @click="toggleChange(4)"><span class="material-symbols-outlined sym">
 video_camera_front
 </span></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div :class="{'bg-w':isActive[5] , 'bg-t':!isActive[5]}" @click="toggleChange(5)"><span class="material-symbols-outlined sym">
 robot_2
 </span></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div :class="{'bg-w':isActive[6] , 'bg-t':!isActive[6]}" @click="toggleChange(6)"><span class="material-symbols-outlined sym">
 volume_up
 </span></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div class="btn" id="end" @click="endCall"><span class="material-symbols-outlined sym">
 call_end
 </span></div>
-            <div class="btn"><span class="material-symbols-outlined sym">
+            <div :class="{'bg-w':isActive[7] , 'bg-t':!isActive[7]}" @click="dialpad()"><span class="material-symbols-outlined sym">
 dialpad
 </span></div>
         </div>
@@ -128,7 +144,33 @@ dialpad
     align-items:center;
     justify-content:center;
     color:white;
-    box-shadow: 0px 0px 20px 0.7px rgba(255, 255, 255, 0.5) inset;
+    box-shadow: 0px 0px 25px 0.7px rgba(255, 255, 255, 0.5) inset;
+}
+.bg-t{
+    height:15vh;
+    width:15vh;
+    border:1px solid grey;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    box-shadow: 0px 0px 25px 0.7px rgba(255, 255, 255, 0.5) inset;
+}
+.bg-w{
+    height:15vh;
+    width:15vh;
+    border:1px solid grey;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:grey;
+    box-shadow: 0px 0px 25px 0.7px rgba(255, 255, 255, 0.5) inset;
+}
+.btn:hover{
+    cursor:pointer;
 }
 .bottom{
     padding:17px;
@@ -139,5 +181,8 @@ dialpad
 }
 .sym{
     font-size:3rem;
+}
+#end{
+    background-color:red;
 }
 </style>
