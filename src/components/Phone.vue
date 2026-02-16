@@ -5,6 +5,14 @@ import Header from './Header.vue';
 
     const router = useRouter();
 
+    const clickAudio = ref(null);
+    const playClickSound = () => {
+        if (clickAudio.value) {
+            clickAudio.value.currentTime = 0;
+            clickAudio.value.play();
+        }
+    };
+
     const TouchStartY = ref(0);
     const TouchEndY = ref(0);
     const minSwipeDis = 50;
@@ -43,12 +51,14 @@ import Header from './Header.vue';
     let num = ref('');
 
     function append(n){
+        playClickSound();
         if(num.value.length<12){
             num.value = num.value+n;
         }
     }
 
     function back(){
+        playClickSound();
         let k = num.value.length;
         num.value = num.value.substring(0,k-1);
     }
@@ -64,6 +74,7 @@ import Header from './Header.vue';
         <div class="menu"><div class="dialer">Dialer</div><div class="contacts" @click="gotoContacts()">Contacts</div></div>
         <div class="heading">Dialer</div>
         <div class="num">{{ num }}</div>
+        <audio ref="clickAudio" src="/assets/music/click.mp3" 1 preload="auto"></audio>
         <div class="numpad">
             <button class="btn" @click="append('1')">1</button>
             <button class="btn" @click="append('2')">2</button>
