@@ -1,11 +1,16 @@
-<script setup></script>
+<script setup>
+import {ref} from 'vue';
+let startAudio = ref(null);
+
+</script>
 
 <template>
-    <div class="screen">
-    <h1>Turquoise</h1>
-    <div id="loading"><div class="circle"><div class="ciye"></div></div></div>
-    </div>
-</template>
+    <audio ref="startAudio" src="/assets/music/Startup_sound.mp3" preload="auto" autoplay></audio>
+        <div class="screen">
+            <h1>Turquoise</h1>
+                <div id="loading"><div class="circle"><div class="ciye"></div></div></div>
+                    </div>
+                    </template>>
 
 <style scoped>
     .screen {
