@@ -10,6 +10,22 @@
     const minSwipeDis = 50;
     const dragSource = ref(null);
 
+    const callText = ref(null);
+    callText.value="Calling"
+    setTimeout(()=>{
+        callText.value="Calling."
+    },3000)
+    setTimeout(()=>{
+        callText.value="Calling.."
+    },6000)
+    setTimeout(()=>{
+        callText.value="Calling..."
+    },9000)
+    setTimeout(()=>{
+        callText.value="Dialer busy"
+    },12000)
+
+
     const startDrag = (e, source) =>{
         TouchStartY.value = e.clientY;
         dragSource.value = source;
@@ -57,12 +73,13 @@
 
 <template>
     <div class="callScreen">
+        <audio src="/assets/music/callerTune.mp3" preload="auto" autoplay></audio>
         <div class="scnd">
             <header @mousedown="(e)=startDrag(e,'header')"><Header></Header></header>
         <div class="top">
         <div class="name">Bob</div>
         <div class="num">+91 44444 55555</div>
-        <div class="call">Calling</div>
+        <div class="call">{{ callText }}</div>
         </div>
         <div class="bottom">
             <div :class="{'bg-w':isActive[0] , 'bg-t':!isActive[0]}" @click="toggleChange(0)"><span class="material-symbols-outlined sym">

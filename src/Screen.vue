@@ -1,8 +1,4 @@
-<script setup>
-import {ref} from 'vue';
-let startAudio = ref(null);
-
-</script>
+<script setup></script>
 
 <template>
     <audio ref="startAudio" src="/assets/music/Startup_sound.mp3" preload="auto" autoplay></audio>
